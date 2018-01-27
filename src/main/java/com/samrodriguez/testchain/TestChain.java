@@ -29,7 +29,10 @@ public class TestChain {
         System.out.println("Trying to Mine block 3... ");
 	blockchain.get(2).mineBlock(difficulty);
         
-        System.out.println("\nBlockchain is Valid: " + isChainValid());
+        System.out.println("\nBlockchain should be valid: " + isChainValid());
+        System.out.println("\n");
+        blockchain.get(1).change("Some changed data");
+        System.out.println("\nBlockchain should not be valid: " + isChainValid());
         
         String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);		
         System.out.println("\nThe block chain: ");

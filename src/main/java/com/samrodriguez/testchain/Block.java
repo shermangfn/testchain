@@ -23,7 +23,11 @@ public class Block {
         this.timeStamp = new Date().getTime();
         this.hash = calculateHash(); //Making sure we do this after we set the other values.
     }
-
+    
+    public void change(String data){
+        this.data = data;
+    }
+    
     public String calculateHash() {
         String calculatedhash = StringUtil.applySha256( 
                         previousHash +
